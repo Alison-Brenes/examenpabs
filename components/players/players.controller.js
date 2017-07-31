@@ -36,32 +36,32 @@
     // Inicio de la función save, que se encarga de obtener los datos y enviarlos para ser guardados.(Pamela)
       vm.save= function(){
         var newPlayer = {
-          id: vm.code,
-          firstName: vm.name,
-          secondName: vm.alias,
-          surname: vm.money,
+          code: vm.code,
+          name: vm.name,
+          alias: vm.alias,
+          money: vm.money,
           photo: vm.photo,
         }// Cierre de newStudent.(Pamela)
 
     // intento de restringir los usuarios que se registran
-      if(vm.students.length == 0){
-         studentService.setStudents(newStudent);
+      if(vm.players.length == 0){
+         studentService.setStudents(newPlayer);
          document.querySelector('.Accepted').innerHTML = 'Registro completado!';
-         console.log(vm.students);
+         console.log(vm.players);
          clear();
          init();
          return;
       }else{
-        for(var i = 0; i < vm.students.length; i++){
-          if(newStudent.id == vm.students[i].id){
+        for(var i = 0; i < vm.players.length; i++){
+          if(newPlayer.code == vm.players[i].code){
              document.querySelector('.failId').innerHTML = '**El número de cédula ya  está registrado, por favor ingrese otro**';
              return;
           }
-          else if(newStudent.email == vm.students[i].email){
+          /*else if(newStudent.email == vm.students[i].email){
                   document.querySelector('.failEmail').innerHTML = 'El correo electrónico ya está registrado, por favor ingrese otro';
                   document.querySelector('.failId').innerHTML = '';
                   return;
-                }
+                }*/
                 else{
                   console.log(newStudent);
                   studentService.setStudents(newStudent);
@@ -79,27 +79,12 @@
       }// Cierre de la función save.(Pamela)
 
       // Inicio: de la función getInfo, que se encarga de obtener los datos.(Pamela)
-      vm.getInfo = function(pStudent){
-        vm.id = pStudent.id;
-        vm.firstName = pStudent.firstName;
-        vm.secondName = pStudent.secondName;
-        vm.surname = pStudent.surname;
-        vm.secondSurname = pStudent.secondSurname;
-        vm.gender = pStudent.gender;
-        vm.date = new Date(pStudent.date);
-        vm.civilStatus = pStudent.civilStatus;
-        vm.email = pStudent.email;
-        vm.telephone = pStudent.telephone;
-        vm.address = pStudent.address;
-        vm.weight = pStudent.weight;
-        vm.height = pStudent.height;
-        vm.ageCategory = pStudent.ageCategory;
-        vm.weightCategory = pStudent.weightCategory;
-        vm.academies = pStudent.academies;
-        vm.teachers = pStudent.teachers;
-        vm.grade = pStudent.grade;
-        vm.password = pStudent.password
-        vm.photo = pStudent.photo;
+      vm.getInfo = function(pPlayer){
+        vm.code = pPlayer.code;
+        vm.name = pPlayer.name;
+        vm.alias = pPlayer.alias;
+        vm.money = pPlayer.money;
+        vm.photo = pPlayer.photo;
       }// Cierre de la función getInfo.(Pamela)
     //función que cambia boton segun la información para modificar Pili
     vm.hideButton = function(){
@@ -111,59 +96,28 @@
       vm.update = function(){
         document.querySelector('#actualizar').classList.add('displayNone');
         document.querySelector('#registrar').classList.remove('displayNone');
-        var studentEdited = {
-          id: vm.id,
-          firstName: vm.firstName,
-          secondName: vm.secondName,
-          surname: vm.surname,
-          secondSurname: vm.secondSurname,
-          gender: vm.gender,
-          date: vm.date,
-          civilStatus: vm.civilStatus,
-          email: vm.email,
-          telephone: vm.telephone,
-          address: vm.address,
-          weight: vm.weight,
-          height: vm.height,
-          ageCategory: vm.ageCategory,
-          weightCategory: vm.weightCategory,
-          academies: vm.academies,
-          teachers: vm.teachers,
-          grade: vm.grade,
-          status: 'Activo',
-          password: vm.password,
+        var playerEdited = {
+          code: vm.code,
+          name: vm.name,
+          alias: vm.alias,
+          money: vm.money,
           photo: vm.photo
         }// Cierre de studentEdited.(Pamela)
-        studentService.updateStudent(studentEdited);
+        playersService.updatePlayer(playerEdited);
         init();
         clear();
       }// Cierre de la función update.(Pamela)
 
       // Inicio de la función clear, que se encarga de limpiar los datos despúes de un registro.(Pamela)
       function clear(){
-        vm.id = '';
-        vm.firstName =  '';
-        vm.secondName =  '';
-        vm.surname =  '';
-        vm.secondSurname =  '';
-        vm.gender =  '';
-        vm.date =  '';
-        vm.civilStatus =  '';
-        vm.email =  '';
-        vm.telephone =  '';
-        vm.address =  '';
-        vm.weight =  '';
-        vm.height =  '';
-        vm.ageCategory= '';
-        vm.weightCategory= '';
-        vm.academies = '';
-        vm.teachers = '';
-        vm.grade =  '';
-        vm.password = '';
+        vm.code = '';
+        vm.name =  '';
+        vm.alias =  '';
+        vm.money =  '';
         vm.photo = '';
       }// Cierre de la función clear.(Pamela)
 
-      // Inicio de la función inactive, que se encarga de cambiar el estado del profesor.(Pamela)
+      /* Inicio de la función inactive, que se encarga de cambiar el estado del profesor.(Pamela)
       //función que cambia el estado a inabilitado.(Pamela)
       vm.inactive = function(pStudent){
         var studentsList = studentService.getStudents();
@@ -192,7 +146,7 @@
 
       vm.logOut = function(){
         AuthService.logOut();
-      }
+      }*/
 
     }// Cierre de la función studentController.(Pamela)
 })();
