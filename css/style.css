@@ -4,107 +4,40 @@
 }*/
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 /*Estilos del form*/
-section h1{
-  text-align: center;
-  color: #50666B;
+html{
+  background-color: #4b4b4b;
 }
-section hr{
-  background: #dcdcdc;
-  height: 1px;
+#registerPlayer h1{
+  background-color: #4b4b4b;
+  text-align: center;
+  color: #fefcfc;
+  padding-bottom: 8px;
 }
 /*Estilos de botones*/
-.buttonsFights{
-  border-radius: 15px;
-  background: #e67e22;
-  color: #fff;
-}
-.buttonFights{
-  border-radius: 15px;
-  background: #00cbfe;
-  color: #fff;
-}
-.button{
+.registrar{
   padding: 5px 15px;
-  background: #e67e22;
-  color: #fff;
   margin-top: 25px;
   font-size: 1em;
-  margin-bottom: 30px
-}
-.tabla{
-  border: none;
-}
-tbody td{
-  text-align: center;
-}
-.edit{
-  background:#6d3f96;
+  margin-bottom: 30px;
+  background:#1ab99b;
   color: #fff;
   border-radius: 8px;
 }
-.Active{
-  background:#e67e22;
-  color: #fff;
-  border-radius: 8px;
-}
-.atras{
-  padding:10px 15px;
-  background:#00cbfe;
-  color: #fff;
-  border-radius: 8px;
-}
-.siguiente{
-  padding: 10px 15px;
-  background:#fdc05d;
-  color: #fff;
-  border-radius: 8px;
-}
-#registrar .Active:hover{
-  background: #6d3f96; /*morado*/
-  color: #fff;
-}
-#actualizar .edit:hover{
-  background: #fdc05d; /*naranja*/
-  color: #fff;
-}
-#buttons .Active:hover{
-  background: #6d3f96; /*morado*/
-  color: #fff;
-}
-#buttons .edit:hover{
-  background: #fdc05d;/*naranja*/
+.registrar:hover{
+  background: #1ab99b; /*morado*/
   color: #fff;
 }
 /*Fin de estilos de botones*/
-
 section{
   font-family: helvetica;
+
 }
 .photoStudent{
   height: 90px;
   width: 152px;
 }
-.photoTeacherProfile{
-  height: 150px;
-  width: 150px;
-}
-.select{
-  padding-top: 24px;
-}
-.select2{
-  padding-top: 12px;
-}
-.check{
-  padding-top: 34px;
-}
-.buttonphoto{
-  padding: 12px 10px;
-  border-radius: 8px;
-  margin-top: 25px;
-  margin-bottom: 30px
-}
 label{
-  margin-left: 16px;
+  margin-left: 25px;
 }
 span{
   display: block;
@@ -118,46 +51,11 @@ span{
   font-size:24px;
   text-align: center;
 }
-#ModInfo span{
-  display: block;
-}
 #inputSearch{
   margin-bottom: 30px;
 }
-.puntajes h2,h5{
-  text-align: center;
-  font-size: 16px;
-}
 /*Fin de los estilos del form*/
-.pull-right {
-float: right !important;
-}
-.navbar-collapse{
-line-height: 25px;
-}
-#title{
-  text-align: center;
-  line-height: 35px;
-}
-#title-text{
-  text-align: center;
-}
-#eventsTitle{
-  text-align: center;
-  line-height: 35px;
-  color: #e67e22;
-}
-#line-height{
-  text-align: justify;
-  line-height: 35px;
-}
 
-/*Estilos del mapa*/
-#mapa{
-  width:500px;
-  height: 500px;
-  border: 2px solid #000;
-}
 
 /*Estilos generales*/
 .displayNone{
