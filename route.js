@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   angular
-  .module('testRoutes', ['ui.router', 'oc.lazyLoad', 'angularCSS','ngMessages'])
+  .module('myRoutes', ['ui.router', 'oc.lazyLoad', 'angularCSS','ngMessages'])
   .config(configuration)
 
 
@@ -18,7 +18,7 @@
           return $ocLazyLoad.load('./components/players/players.controller.js')
         }]
       },
-      controller: 'playersController',
+      controller: 'playerController',
       controllerAs: 'vm',
       css:'css/style.css'
     })

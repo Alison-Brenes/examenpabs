@@ -1,7 +1,7 @@
 (function(){
 	'use strict';
 	angular
-	.module('testApp', ['testRoutes', 'ngMaterial', 'ngCookies', 'ngFileUpload'])
+	.module('myApp', ['myRoutes', 'ngMaterial', 'ngCookies', 'ngFileUpload'])
 	.config(function($mdThemingProvider) {
   		$mdThemingProvider.theme('default')
     		.primaryPalette('grey')
