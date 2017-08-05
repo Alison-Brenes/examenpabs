@@ -2,6 +2,7 @@
   angular
     .module('myApp')
     .controller('playerController', playerController);
+
     function playerController(playerService,ImageService,Upload){
 
       var vm = this;
