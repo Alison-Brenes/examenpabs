@@ -23,6 +23,7 @@
       css:'css/style.css'
     })
 
+
     $urlRouterProvider.otherwise('/players');
   }//cierre de las rutas
 })();

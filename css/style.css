@@ -13,6 +13,11 @@ html{
   color: #fefcfc;
   padding-bottom: 8px;
 }
+#registerPurchase h1{
+  background-color: #4b4b4b;
+  text-align: center;
+  color: #fefcfc;
+}
 /*Estilos de botones*/
 .registrar{
   padding: 5px 15px;
