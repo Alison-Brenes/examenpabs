@@ -37,7 +37,6 @@
         // intento de restringir los usuarios que se registran
           if(vm.players.length == 0){
             playerService.setPlayers(newPlayer);
-            document.querySelector('.Accepted').innerHTML = 'Registrado Correctamente!';
             console.log(vm.players);
             clear();
             init();
@@ -52,7 +51,6 @@
                 console.log(newPlayer);
                 playerService.setPlayers(newPlayer);
                 document.querySelector('.failId').innerHTML = '';
-                document.querySelector('.Accepted').innerHTML = 'Registrado Correctamente';
                 console.log(vm.players);
                 clear();
                 init();
