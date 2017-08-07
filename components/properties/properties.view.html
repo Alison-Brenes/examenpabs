@@ -1,0 +1,67 @@
+  <!--Inicio de sección de registro -->
+  <section id="registerProperty">
+    <!--Inicio de formulario -->
+    <form class="form" name="frmRegisterProperty" novalidate autocomplete="off">
+      <h1>Propiedades</h1>
+      <ul class="nav nav-tabs col-md-offset-1 col-md-10 espacio">
+        <li class="active"><a data-toggle="tab" ng-click="anterior()" href="">Propiedades Registradas</a></li>
+        <li><a data-toggle="tab" ng-click="siguiente()" href=""></a></li>
+        <li><a data-toggle="tab" href="#!/players">Jugadores</a></li>
+        <li><a data-toggle="tab" href="#!/purchases">Compras</a></li>
+      </ul>
+
+      <!--Inicio de pagina1 -->
+      <div class="col-md-offset-1 col-md-10  row" ng-show="pagina==1">
+        <!--Inicio de buscar jugadores -->
+        <section class="inputSearch">
+          <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+            <form action="" class="search-form">
+              <div class="form-group has-feedback">
+                <label for="Buscar" class="sr-only">Buscar</label>
+                <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+              </div>
+            </div>
+          </section><!--Cierre buscar jugadores -->
+
+          <!--Inicio de sección cards-->
+          <section class="card">
+            <!--Inicio de cards-->
+            <div class="col-xs-12 col-sm-12 col-md-12">
+              <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1" ng-repeat="property in vm.properties  |filter:vm.nameFilter">
+                <md-card-header>
+                  <md-card-header-text>
+                    <span class="md-title">{{property.name}}</span>
+                    <span class="md-subhead">{{property.id}}</span>
+                  </md-card-header-text>
+                </md-card-header>
+                <md-card-title>
+                  <md-card-title-text>
+                    <div>
+                      <span class="md-subhead">Posición:{{property.posistion}}</span>
+                      <span class="md-subhead">Precio:{{property.price}}</span>
+                      <span class="md-subhead">Renta:{{property.rent}}</span>
+                      <span class="md-subhead">multpliedrent:{{property.multpliedrent}}</span>
+                      <span class="md-subhead">Costo de la casa:{{property.housecost}}</span>
+                      <span class="md-subhead">Grupo:{{property.group}}</span>
+                      <span class="md-subhead">Propiedad de:{{property.ownedby}}</span>
+                      <span class="md-subhead">Edificios:{{property.buildings}}</span>
+                      <span class="md-subhead">Hipotecado:{{property.mortgaged}}</span>
+                      <span class="md-subhead">Probabilidad:{{property.probability}}</span>
+                      <span class="md-subhead">rel:{{property.rel}}</span>
+                      <span class="md-subhead">ohousecost:{{property.ohousecost}}</span>
+                      <span class="md-subhead">oprice:{{property.oprice}}</span>
+                      <span class="md-subhead">Probabilidad media:{{property.averageProbability}}</span>
+                    </div>
+                  </md-card-title-text>
+                  <md-card-title-media>
+                  </md-card-title-media>
+                </md-card-title>
+                <md-card-actions>
+                </md-card-actions>
+              </div><!--Cierre de los cards -->
+            </section><!--Cierre de sección cards-->
+          </div><!-- Cierre paguina1-->
+
+          <div class= "col-md-12" ng-show="pagina==2">
+          </div><!-- cierre paguina2-->
