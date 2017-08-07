@@ -3,66 +3,106 @@
   src: url(fonts/Roboto-Regular.ttf);
 }*/
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-/*Estilos del form*/
+/*Inicio Estilos del cuerpo*/
 html{
-  background-color: #4b4b4b;
+  background-color: #fcfcfc;
 }
+body{
+  background-color: #fcfcfc;
+  max-width: 100%;
+}
+label{
+  margin-left: 23px;
+}
+section{
+  font-family: helvetica;
+}
+/*Cierre estilos del cuerpo*/
+
+/*Inicio Estilos de h1*/
 #registerPlayer h1{
-  background-color: #4b4b4b;
+  background-color: #fcfcfc;
   text-align: center;
-  color: #fefcfc;
+  color:#687270;
   padding-bottom: 8px;
+  margin-bottom: 20px;
 }
 #registerPurchase h1{
-  background-color: #4b4b4b;
+  background-color: #fcfcfc;
   text-align: center;
-  color: #fefcfc;
+  color: #687270;
+  padding-bottom: 8px;
 }
-/*Estilos de botones*/
+#registerProperty h1{
+  background-color: #fcfcfc;
+  text-align: center;
+  color: #687270;
+  padding-bottom: 8px;
+}
+/*Cierre estilos de h1*/
+
+/*Inicio estilos de sección de cards y card*/
+.card{
+  padding-top: 80px;
+}
+.edit{
+  color: #04B404;
+}
+span{
+  display: block;
+}
+/*Cierre estilos de sección de cards y card*/
+
+/*Inicio estilos de botones*/
 .registrar{
   padding: 5px 15px;
   margin-top: 25px;
   font-size: 1em;
   margin-bottom: 30px;
-  background:#1ab99b;
+  background:#00a59c;
   color: #fff;
   border-radius: 8px;
 }
 .registrar:hover{
-  background: #1ab99b; /*morado*/
+  background-color: #00a59c;
   color: #fff;
-}
-/*Fin de estilos de botones*/
-section{
-  font-family: helvetica;
-
 }
 .photoStudent{
   height: 90px;
   width: 152px;
 }
-label{
-  margin-left: 25px;
-}
-span{
-  display: block;
-}
-.failId{
-  color: #e67e22;
-  font-size:12px;
-}
-.Accepted{
-  color: #e67e22;
-  font-size:24px;
-  text-align: center;
-}
-#inputSearch{
-  margin-bottom: 30px;
-}
-/*Fin de los estilos del form*/
-
-
-/*Estilos generales*/
 .displayNone{
     display: none;
 }
+/*Cierre estilos de botones*/
+
+/*Inicio estilos de buscar*/
+#inputSearch{
+  margin-bottom: 30px;
+  padding-top: 56px;
+}
+.inputSearch .search-form{
+  padding-top: 25px;
+}
+/*Cierre estilos de buscar*/
+
+/*Inicio estilos de alertas*/
+.failId{
+  color: #01DF74;
+  font-size:14px;
+  padding-left: 30px;
+  margin-top: 16px;
+}
+/*Cierre estilos de alertas*/
+
+/*Inicio estilos de tabs*/
+form .nav-tabs a, a:focus{
+  color: #21b531;
+}
+form .nav-tabs a:hover, a:focus{
+  color: #21b531;
+}
+.espacio{
+  margin-bottom:20px;
+}
+/*Cierre estilos de tabs*/
