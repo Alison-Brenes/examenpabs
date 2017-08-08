@@ -32,8 +32,8 @@
         var disponible = 0;
 
         for (var i = 0; i < purchasesList.length; i++) {
-          if (purchasesList[i].players = playersList[i].name) {
-            disponible = playersList[i].money - purchasesList[i].kkk;
+          if (purchasesList[i].players == playersList[i].name) {
+            disponible = playersList[i].money - purchasesList[i].price;
             updateDescuento(disponible);
           }
         }
@@ -45,7 +45,7 @@
         var purchasesList = purchaseService.getPurchases();
 
         for (var i = 0; i < purchasesList.length; i++) {
-          if (purchasesList[i].players = playersList[i].name) {
+          if (purchasesList[i].players == playersList[i].name) {
             playersList[i].money = pdisponible;
             localStorage.setItem('lsUsersList', JSON.stringify(playersList));
           }
