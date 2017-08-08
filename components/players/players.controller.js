@@ -12,7 +12,7 @@
     function init(){
       vm.players = playerService.getPlayers();
     }init();
-
+    
     $scope.pagina = 1;
     $scope.siguiente = function() {
       $scope.pagina = 2;
