@@ -40,7 +40,7 @@
         code: vm.code,
         name: vm.name,
         alias: vm.alias,
-        money: vm.money,
+        money: 1500,
         photo: vm.photo,
       }// Cierre de newPlayer.
 
@@ -75,7 +75,7 @@
         vm.code = pPlayer.code;
         vm.name = pPlayer.name;
         vm.alias = pPlayer.alias;
-        vm.money = pPlayer.money;
+        vm.money = 1500;
         vm.photo = pPlayer.photo;
       }// Cierre de la función getInfo.
 
@@ -91,7 +91,7 @@
           code: vm.code,
           name: vm.name,
           alias: vm.alias,
-          money: vm.money,
+          money: 1500,
           photo: vm.photo
         }// Cierre de playerEdited.
         playerService.updatePlayer(playerEdited);
@@ -104,7 +104,6 @@
         vm.code = '';
         vm.name =  '';
         vm.alias =  '';
-        vm.money =  '';
         vm.photo = '';
       }// Cierre de la función clear.
     }// Cierre de playerController.
