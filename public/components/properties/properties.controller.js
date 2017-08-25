@@ -3,15 +3,22 @@
   .module('myApp')
   .controller('propertyController', propertyController);
 
+  propertyController.$inject = ['propertyService','ImageService','Upload','$scope'];
+
   // Inicio de propertyController.
   function
   propertyController(propertyService,$scope){
     var vm = this;
+    vm.properties = "";
+    loadProperties();
 
-    // Inicio de la función init que es la que se inicializa de primero.
-    function init(){
-      vm.properties = propertyService.getProperties();
-    }init();
+    function loadProperties(){
+      propertyService.getProperties().then(function(response){
+        vm.properties = response.data;
+       });
+    }
+
+
 
     $scope.pagina = 1;
     $scope.siguiente = function() {

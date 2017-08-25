@@ -3,15 +3,22 @@
   .module('myApp')
   .controller('playerController', playerController);
 
+  playerController.$inject = ['playerService','ImageService','Upload','$scope'];
+
   // Inicio de playerController.
   function playerController(playerService,ImageService,Upload,$scope){
-    var vm = this;
-    vm.cloudObj = ImageService.getConfiguration();
 
-    // Inicio de la función init que es la que se inicializa de primero.
-    function init(){
-      vm.players = playerService.getPlayers();
-    }init();
+    var vm = this;
+    vm.players ="";
+    loadPlayers();
+
+    function loadPlayers(){
+        playerService.getPlayers().then(function (response) {
+            vm.players = response.data;
+          });
+
+          vm.cloudObj = ImageService.getConfiguration();
+        }
 
     $scope.pagina = 1;
     $scope.siguiente = function() {
@@ -49,7 +56,7 @@
           playerService.setPlayers(newPlayer);
           console.log(vm.players);
           clear();
-          init();
+          loadPlayers();
           return;
         }else{
           for(var i = 0; i < vm.players.length; i++){
@@ -63,7 +70,7 @@
               document.querySelector('.failId').innerHTML = '';
               console.log(vm.players);
               clear();
-              init();
+              loadPlayers();
               return;
             }
           }
@@ -72,6 +79,7 @@
 
       // Inicio: de la función getInfo, que se encarga de obtener los datos.
       vm.getInfo = function(pPlayer){
+        vm.id = pPlayer._id;
         vm.code = pPlayer.code;
         vm.name = pPlayer.name;
         vm.alias = pPlayer.alias;
@@ -88,6 +96,7 @@
       // Inicio de la función update, que se encarga de devolver los datos para ser editados.
       vm.update = function(){
         var playerEdited = {
+          _id : vm.id,
           code: vm.code,
           name: vm.name,
           alias: vm.alias,
@@ -95,7 +104,7 @@
           photo: vm.photo
         }// Cierre de playerEdited.
         playerService.updatePlayer(playerEdited);
-        init();
+        loadPlayers();
         clear();
       }// Cierre de la función update.
 

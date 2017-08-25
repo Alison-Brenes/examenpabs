@@ -4,7 +4,7 @@
   .service('playerService', playerService);
 
   // Inicio de función playerService.
-  function playerService(){
+  function playerService($http){
     var players = [{
       code: 001,
       name:'Goku',
@@ -42,30 +42,19 @@
 
   // Inicio de la funcion _setPlayers, que se encarga de registar los datos en el localStorage.
   function _setPlayers(pPlayer){
-    var playersList = _getPlayers();
 
-    playersList.push(pPlayer);
-    localStorage.setItem('lsUsersList', JSON.stringify(playersList));
+  return $http.post('http://localhost:3000/api/save_players',pPlayer)
   }// Cierre de la función _setPlayers.
 
   // Inicio de la función _getPlayers, que se encarga de obtener los datos más actualizados.
   function _getPlayers(){
-    var playersList = JSON.parse(localStorage.getItem('lsUsersList'));
-    if(playersList == null){
-      playersList = players;
-    }
-    return playersList;
+      return $http.get('http://localhost:3000/api/get_all_players');
   }// Cierre de la función _getPlayers.
 
   // Inicio de la función _updatePlayer, que se encarga de permitir la edición de datos.
   function _updatePlayer(pobjPlayer){
-    var playersList = _getPlayers();
-    for(var i = 0; i < playersList.length; i++){
-      if(playersList[i].code == pobjPlayer.code){
-        playersList[i] = pobjPlayer;
-      }
+    console.log(pobjPlayer);
+          return $http.put('http://localhost:3000/api/update_player',pobjPlayer);
     }
-    localStorage.setItem('lsUsersList', JSON.stringify(playersList));
-  }// Cierre de la función _updatePlayer.
 }//Cierre de la  función playerService.
 })();

@@ -4,7 +4,7 @@ angular
 .service('propertyService', propertyService);
 
 // Inicio de propertyService.
-function propertyService(){
+function propertyService($http){
   var properties = [{
       "name": "Mediterranean Avenue",
       "id": "mediterraneanave",
@@ -721,11 +721,7 @@ function propertyService(){
 
   // Inicio de la función _getProperties, que se encarga de obtener los datos más actualizados.
   function _getProperties(){
-    var propertiesList = JSON.parse(localStorage.getItem('lsPropertiesList'));
-    if(propertiesList == null){
-      propertiesList = properties;
-    }
-    return propertiesList;
+    return $http.get('http://localhost:3000/api/get_all_properties');
   }// Cierre de la función _getProperties.
 }// Cierre de propertyService..
 })();

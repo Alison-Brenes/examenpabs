@@ -3,16 +3,22 @@
     .module('myApp')
     .controller('purchaseController', purchaseController);
 
+    purchaseController.$inject = ['purchaseService','playerService','propertyService','$scope'];
+
     // Inicio de purchaseController.
     function purchaseController(purchaseService,playerService,propertyService,$scope){
       var vm = this;
+      vm.purchases ="";
+      loadPurchases();
 
-      // Inicio de la función init que es la que se inicializa de primero.
-      function init(){
-        vm.purchases = purchaseService.getPurchases();
-        vm.playersRel = playerService.getPlayers();
-        vm.propertiesRel = propertyService.getProperties();
-      }init();
+      function loadPurchases(){
+          purchaseService.getPurchases().then(function (response) {
+              vm.purchases = response.data;
+            });
+
+
+          }
+
 
       $scope.pagina = 1;
       $scope.siguiente = function() {
@@ -59,12 +65,13 @@
           price: vm.price,
         }// Cierre de newPurchase.
         purchaseService.setPurchases(newPurchase);
-        init();
+        loadPurchases();
         clear();
         }// Cierre de la función save.
 
         // Inicio: de la función getInfo, que se encarga de obtener los datos.
         vm.getInfo = function(pPurchase){
+          vm.id = v._id;
           vm.players = pPurchase.players;
           vm.price = pPurchase.price;
         }// Cierre de la función getInfo.
@@ -78,11 +85,12 @@
         // Inicio de la función update, que se encarga de devolver los datos para ser editados.
         vm.update = function(){
           var purchaseEdited = {
+            _id : vm.id,
             players: vm.players,
             price: vm.price
           }// Cierre de update.
           purchaseService.updatePurchase(purchaseEdited);
-          init();
+          loadPurchases();
           clear();
         }// Cierre de la función update.
 
