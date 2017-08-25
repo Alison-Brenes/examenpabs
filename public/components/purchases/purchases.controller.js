@@ -9,6 +9,7 @@
     function purchaseController(purchaseService,playerService,propertyService,$scope){
       var vm = this;
       vm.purchases ="";
+      vm.playersRel = {};
       loadPurchases();
 
       function loadPurchases(){
@@ -16,8 +17,12 @@
               vm.purchases = response.data;
             });
 
+            playerService.getPlayers().then(function (response) {
+            vm.playersRel = response.data;
+        });
 
-          }
+
+        }
 
 
       $scope.pagina = 1;

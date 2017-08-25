@@ -71,8 +71,8 @@
               console.log(vm.players);
               clear();
               loadPlayers();
-              return;
             }
+            return;
           }
         }
       }// Cierre de la función save.
@@ -95,6 +95,8 @@
 
       // Inicio de la función update, que se encarga de devolver los datos para ser editados.
       vm.update = function(){
+        document.querySelector('#actualizar').classList.add('displayNone');
+        document.querySelector('#registrar').classList.remove('displayNone');
         var playerEdited = {
           _id : vm.id,
           code: vm.code,
@@ -103,10 +105,18 @@
           money: 1500,
           photo: vm.photo
         }// Cierre de playerEdited.
-        playerService.updatePlayer(playerEdited);
+        playerService.updatePlayer(playerEdited).then(function(response){
+          playerService.getPlayers()
+            .then(function(response){
+              vm.players = response.data;
+            })
+            .catch(function(err){
+              console.log(err);
+            })
+         });
         loadPlayers();
         clear();
-      }// Cierre de la función update.
+      }//cierre funcion update
 
       // Inicio de la función clear, que se encarga de limpiar los datos despúes de un registro.
       function clear(){
