@@ -10,6 +10,7 @@
       var vm = this;
       vm.purchases ="";
       vm.playersRel = {};
+      vm.propertiesRel= {};
       loadPurchases();
 
       function loadPurchases(){
@@ -20,6 +21,10 @@
             playerService.getPlayers().then(function (response) {
             vm.playersRel = response.data;
         });
+
+        propertyService.getProperties().then(function (response) {
+        vm.propertiesRel = response.data;
+    });
 
 
         }

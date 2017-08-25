@@ -9,7 +9,7 @@ router.param('id', function(req, res, next, id){
   next();
 });
 
-router.route('/save_purchase')
+router.route('/save_purchases')
   .post(function(req,res){
     purchaseController.save(req,res);
 
@@ -19,7 +19,7 @@ router.route('/get_all_purchases')
     purchaseController.findAll(req,res);
   });
 
-router.route('/update_purchases')
+router.route('/update_purchase')
   .put(function(req, res){
   purchaseController.update(req,res);
 });
