@@ -2,11 +2,23 @@ var Property = require('./property.model.js');
 
 module.exports.save = function(req, res){
   var newProperty = new Property({
-    code: req.body.code,
-    name: req.body.name,
-    alias: req.body.alias,
-    money: req.body.money,
-    photo: req.body.photo
+    name  : req.body.name,
+    idproperty  : req.body.idproperty,
+    posistion  : req.body.posistion,
+    price  :  req.body.price,
+    rent  :  req.body.rent,
+    multpliedrent :  req.body.multpliedrent,
+    housecost  :  req.body.housecost,
+    group  :  req.body.group,
+    ownedby :  req.body.ownedby,
+    buildings :  req.body.buildings,
+    mortgaged :  req.body.mortgaged,
+    probability :  req.body.probability,
+    rel :  req.body.rel,
+    ohousecost :  req.body.ohousecost,
+    oprice :  req.body.oprice,
+    averageProbability :  req.body.averageProbability
+
   });
 
   newProperty.save(function(err){

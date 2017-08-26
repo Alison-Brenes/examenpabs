@@ -44,11 +44,23 @@
     // Inicio de la función save, que se encarga de obtener los datos y enviarlos para ser guardados.
     vm.save= function(){
       var newProperty = {
-        code: vm.code,
-        name: vm.name,
-        alias: vm.alias,
-        money: 1500,
-        photo: vm.photo,
+        name  : vm.name,
+        idproperty  : vm.idproperty,
+        posistion  : vm.posistion,
+        price  :  vm.price,
+        rent  :  vm.rent,
+        multpliedrent :  vm.multpliedrent,
+        housecost  :  vm.housecost,
+        group  :  vm.group,
+        ownedby :  vm.ownedby,
+        buildings :  vm.buildings,
+        mortgaged :  vm.mortgaged,
+        probability :  vm.probability,
+        rel :  vm.rel,
+        ohousecost :  vm.ohousecost,
+        oprice :  vm.oprice,
+        averageProbability :  vm.averageProbability,
+
       }// Cierre de newPlayer.
 
       // intento de restringir los usuarios que se registran
@@ -60,7 +72,7 @@
           return;
         }else{
           for(var i = 0; i < vm.properties.length; i++){
-            if(newProperty.code == vm.properties[i].code){
+            if(newProperty.idproperty == vm.properties[i].idproperty){
               document.querySelector('.failId').innerHTML = 'El código ya  está registrado, por favor ingrese otro';
               return;
             }
@@ -82,11 +94,23 @@
       // Inicio: de la función getInfo, que se encarga de obtener los datos.
       vm.getInfo = function(pProperty){
         vm.id = pProperty._id;
-        vm.code = pProperty.code;
         vm.name = pProperty.name;
-        vm.alias = pProperty.alias;
-        vm.money = 1500;
-        vm.photo = pProperty.photo;
+        vm.idproperty = pProperty.idproperty;
+        vm.posistion = pProperty.posistion;
+        vm.price =  pProperty.price;
+        vm.rent =  pProperty.rent;
+        vm.multpliedrent=  pProperty.multpliedrent;
+        vm.housecost =  pProperty.housecost;
+        vm.group =  pProperty.group;
+        vm.ownedby=  pProperty.ownedby;
+        vm.buildings=  pProperty.buildings;
+        vm.mortgaged=  pProperty.mortgaged;
+        vm.probability=  pProperty.probability;
+        vm.rel=  pProperty.rel;
+        vm.ohousecost=  pProperty.ohousecost;
+        vm.oprice=  pProperty.oprice;
+        vm.averageProbability=  pProperty.averageProbability;
+
       }// Cierre de la función getInfo.
 
       // Inicio dinamismo de botones.
@@ -101,11 +125,22 @@
         document.querySelector('#registrar').classList.remove('displayNone');
         var propertyEdited = {
           _id : vm.id,
-          code: vm.code,
-          name: vm.name,
-          alias: vm.alias,
-          money: 1500,
-          photo: vm.photo
+          name  : vm.name,
+          idproperty  : vm.idproperty,
+          posistion  : vm.posistion,
+          price  :  vm.price,
+          rent  :  vm.rent,
+          multpliedrent :  vm.multpliedrent,
+          housecost  :  vm.housecost,
+          group  :  vm.group,
+          ownedby :  vm.ownedby,
+          buildings :  vm.buildings,
+          mortgaged :  vm.mortgaged,
+          probability :  vm.probability,
+          rel :  vm.rel,
+          ohousecost :  vm.ohousecost,
+          oprice :  vm.oprice,
+          averageProbability :  vm.averageProbability,
         }// Cierre de playerEdited.
         propertyService.updateProperty(propertyEdited).then(function(response){
         propertyService.getProperties()
@@ -122,10 +157,23 @@
 
       // Inicio de la función clear, que se encarga de limpiar los datos despúes de un registro.
       function clear(){
-        vm.code = '';
-        vm.name =  '';
-        vm.alias =  '';
-        vm.photo = '';
+        vm.name = '';
+        vm.idproperty = '';
+        vm.posistion ='';
+        vm.price =  '';
+        vm.rent =  '';
+        vm.multpliedrent=  '';
+        vm.housecost =  '';
+        vm.group =  '';
+        vm.ownedby= '';
+        vm.buildings= '';
+        vm.mortgaged=  '';
+        vm.probability= '';
+        vm.rel=  '';
+        vm.ohousecost= '';
+        vm.oprice=  '';
+        vm.averageProbability=  '';
+
       }// Cierre de la función clear.
     }// Cierre de playerController.
   })();

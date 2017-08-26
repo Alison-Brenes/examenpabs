@@ -72,9 +72,7 @@
               clear();
               loadPlayers();
             }
-            clear();
-            loadPlayers();
-            return;
+
           }
         }
       }// Cierre de la función save.
