@@ -72,6 +72,8 @@
               clear();
               loadPlayers();
             }
+            clear();
+            loadPlayers();
             return;
           }
         }
