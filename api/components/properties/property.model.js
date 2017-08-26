@@ -2,7 +2,7 @@
 var mongoose = require('mongoose');
 //Esquema de usuarios
 var PropertySchema = new mongoose.Schema({
-  code : String,
+  code : Number,
   name: String,
   alias: String,
   money: Number,

@@ -1,67 +1,104 @@
 <!--Inicio de sección de registro -->
 <section id="registerProperty">
   <!--Inicio de formulario -->
-  <form class="form" name="frmRegisterProperty" novalidate autocomplete="off">
-    <h1>Propiedades</h1>
+  <form class="form" name="frmRegisterProperty" novalidate autocomplete="off" ng-submit="vm.presave(vm)">
+    <h1>Registro de Propiedades</h1>
     <ul class="nav nav-tabs col-md-offset-1 col-md-10 espacio">
-      <li class="active"><a data-toggle="tab" ng-click="anterior()" href="">Propiedades Registradas</a></li>
-      <li><a data-toggle="tab" ng-click="siguiente()" href=""></a></li>
-      <li><a data-toggle="tab" href="#!/players">Jugadores</a></li>
+      <li class="active"><a data-toggle="tab" ng-click="anterior()" href="">Registro de Propiedades</a></li>
+      <li><a data-toggle="tab" ng-click="siguiente()" href="">Propiedades Registradas</a></li>
+      <li><a data-toggle="tab" href="#!/players">Registro de Jugadores</a></li>
       <li><a data-toggle="tab" href="#!/purchases">Compras</a></li>
     </ul>
 
     <!--Inicio de pagina1 -->
     <div class="col-md-offset-1 col-md-10  row" ng-show="pagina==1">
-      <!--Inicio de buscar jugadores -->
-      <section class="inputSearch">
-        <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
-          <form action="" class="search-form">
-            <div class="form-group has-feedback">
-              <label for="Buscar" class="sr-only">Buscar</label>
-              <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
-              <span class="glyphicon glyphicon-search form-control-feedback"></span>
-            </div>
-          </div>
-        </section><!--Cierre buscar jugadores -->
+      <div class="col-xs-12 col-sm-12 col-md-12"><!--Inicio de labels -->
+        <p class="failId"></p>
+        <md-input-container class="col-xs-12 col-sm-4 col-md-12" layout="column">
+          <label for="">Código:</label>
+          <input type="number" ng-model="vm.code" name="code" ng-minlength="1" ng-maxlength="5" required>
+          <div ng-messages="frmRegisterProperty.code.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--Cierre del ng-messages -->
+        </md-input-container>
 
-        <!--Inicio de sección cards-->
-        <section class="card">
-          <!--Inicio de cards-->
-          <div class="col-xs-12 col-sm-12 col-md-12">
-            <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1" ng-repeat="property in vm.properties  |filter:vm.nameFilter">
-              <md-card-header>
-                <md-card-header-text>
-                  <span class="md-title">{{property.name}}</span>
-                  <span class="md-subhead">{{property.id}}</span>
-                </md-card-header-text>
-              </md-card-header>
-              <md-card-title>
-                <md-card-title-text>
-                  <div>
-                    <span class="md-subhead">Posición:{{property.posistion}}</span>
-                    <span class="md-subhead">Precio:{{property.price}}</span>
-                    <span class="md-subhead">Renta:{{property.rent}}</span>
-                    <span class="md-subhead">multpliedrent:{{property.multpliedrent}}</span>
-                    <span class="md-subhead">Costo de la casa:{{property.housecost}}</span>
-                    <span class="md-subhead">Grupo:{{property.group}}</span>
-                    <span class="md-subhead">Propiedad de:{{property.ownedby}}</span>
-                    <span class="md-subhead">Edificios:{{property.buildings}}</span>
-                    <span class="md-subhead">Hipotecado:{{property.mortgaged}}</span>
-                    <span class="md-subhead">Probabilidad:{{property.probability}}</span>
-                    <span class="md-subhead">rel:{{property.rel}}</span>
-                    <span class="md-subhead">ohousecost:{{property.ohousecost}}</span>
-                    <span class="md-subhead">oprice:{{property.oprice}}</span>
-                    <span class="md-subhead">Probabilidad media:{{property.averageProbability}}</span>
-                  </div>
-                </md-card-title-text>
-                <md-card-title-media>
-                </md-card-title-media>
-              </md-card-title>
-              <md-card-actions>
-              </md-card-actions>
-            </div><!--Cierre de los cards -->
-          </section><!--Cierre de sección cards-->
-        </div><!-- Cierre paguina1-->
+        <md-input-container class="col-xs-12 col-sm-4 col-md-12" layout="column" >
+          <label for="">Nombre Completo del Jugador:</label>
+          <input type="text" ng-model="vm.name" name="name" required>
+          <div ng-messages="frmRegisterProperty.name.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--Cierre del ng-messages -->
+        </md-input-container>
 
-        <div class= "col-md-12" ng-show="pagina==2">
-        </div><!-- cierre paguina2-->
+        <md-input-container class="col-xs-12 col-sm-4 col-md-12" layout="column">
+          <label for="">Alias:</label>
+          <input type="text" ng-model="vm.alias" name="alias" required>
+          <div ng-messages="frmRegisterProperty.alias.$error">
+            <div ng-messages-include="components/includes/messages.html"></div>
+          </div><!--Cierre del ng-messages -->
+        </md-input-container>
+      </div><!--Cierre de labels -->
+
+      <!-- Botones para sellección de foto, registrar y actualizar -->
+      <div class="col-md-12">
+        <!-- Boton de sellección de foto-->
+        <div class="col-xs-offset-0 col-sm-offset-6 col-md-offset-0 col-xs-12 col-sm-12 col-md-12">
+          <input class="" type="file" ng-model="vm.photo" value="Seleccione foto" name="photo" id="photo">
+        </div><!-- Cierre boton de  sellección de foto-->
+        <!-- Boton de registrar-->
+        <div class="col-xs-offset-2  col-sm-offset-10 col-md-offset-0 col-xs-4 col-sm-6 col-md-4" id="registrar">
+          <md-button class="registrar" type="submit" ng-disabled="frmRegisterProperty.$invalid">Registrar</md-button>
+        </div><!--Cierre boton de registrar-->
+        <!-- Boton de actualizar-->
+        <div class="displayNone" id="actualizar">
+          <md-button class="registrar" type="button" ng-disabled="frmRegisterProperty.$invalid" ng-click="vm.update(property);siguiente()">Actualizar</md-button>
+        </div><!-- Cierre boton de actualizar-->
+      </div><!-- Cierre botones para sellección de foto registrar y actualizar -->
+    </form><!--Cierre de formulario -->
+  </div><!--Cierre de pagina1 -->
+</section><!--Cierre de sección de registro -->
+
+<!--Inico de pagina2 -->
+<div class= "col-md-12" ng-show="pagina==2">
+  <!--Inicio de buscar jugadores -->
+  <section class="inputSearch">
+    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+      <form action="" class="search-form">
+        <div class="form-group has-feedback">
+          <label for="Buscar" class="sr-only">Buscar</label>
+          <input type="text" class="form-control" name="nameFilter" ng-model="vm.nameFilter" placeholder="Buscar...">
+          <span class="glyphicon glyphicon-search form-control-feedback"></span>
+        </div>
+      </div><!--Cierre buscar jugadores -->
+    </section><!--Cierre de sección cards-->
+
+    <!--Inicio de sección cards-->
+    <section class="card">
+      <!--Inicio de cards-->
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1" ng-repeat="property in vm.properties  |filter:vm.nameFilter">
+          <md-card-header>
+            <md-card-header-text>
+              <span class="md-title">{{property.code}}</span>
+              <span class="md-subhead">{{property.name}}</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-title>
+            <md-card-title-text>
+              <div>
+                <span class="md-subhead">Alias:{{property.alias}}</span>
+                <span class="md-subhead">Cantidad de Dinero:{{property.money}}</span>
+              </div>
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+                <img img ng-src="{{property.photo}}" alt="Description" width="132px" height="170px"  class="photoStudent">
+              </div>
+            </md-card-title-media>
+          </md-card-title>
+          <md-card-actions>
+            <md-button class="edit" ng-click="vm.getInfo(property);vm.hideButton();registro1()">Editar</md-button>
+          </md-card-actions><!-- cierre botones  -->
+        </div><!--Cierre de los cards -->
+      </section><!--Cierre de sección cards-->
+    </div><!-- Cierre paguina2-->

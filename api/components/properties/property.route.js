@@ -9,9 +9,19 @@ router.param('id', function(req, res, next, id){
   next();
 });
 
+router.route('/save_properties')
+  .post(function(req,res){
+    propertyController.save(req,res);
+
+  });
 router.route('/get_all_properties')
   .get(function(req,res){
     propertyController.findAll(req,res);
   });
+
+router.route('/update_property')
+  .put(function(req, res){
+  propertyController.update(req,res);
+});
 
 module.exports = router;
