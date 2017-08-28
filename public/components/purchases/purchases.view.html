@@ -42,11 +42,11 @@
       <div class="col-md-12">
         <!-- Boton de registrar-->
         <div class="col-xs-offset-2  col-sm-offset-10 col-md-offset-0 col-xs-4 col-sm-6 col-md-4" id="registrar">
-          <md-button class="registrar" type="button" ng-disabled="frmRegisterPurchase.$invalid" ng-click="vm.save(purchase); vm.DiscountPrice()">Registrar</md-button>
+          <md-button class="registrar" type="submit" ng-disabled="frmRegisterPurchase.$invalid" ng-click="vm.save(purchase);">Registrar</md-button>
         </div><!--Cierre boton de registrar-->
         <!-- Boton de actualizar-->
         <div class="displayNone" id="actualizar">
-          <md-button class="registrar" type="button" ng-disabled="frmRegisterPurchase.$invalid" ng-click="vm.update(purchase)">Actualizar</md-button>
+          <md-button class="registrar" type="button" ng-disabled="frmRegisterPurchase.$invalid" ng-click="vm.update(purchase);siguiente()">Actualizar</md-button>
         </div><!-- Cierre boton de actualizar-->
       </div><!-- Cierre botones para  registrar y actualizar -->
     </form><!--Cierre del formulario-->
@@ -57,7 +57,7 @@
 <div class= "col-md-12" ng-show="pagina==2">
   <!--Inicio de buscar jugadores -->
   <section class="inputSearch">
-    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-8">
       <form action="" class="search-form">
         <div class="form-group has-feedback">
           <label for="Buscar" class="sr-only">Buscar</label>
@@ -71,7 +71,7 @@
     <section class="card">
       <!--Inicio de cards-->
       <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-12">
-        <md-card  class="col-xs-12 col-sm-12 col-md-3 " ng-repeat="purchase in vm.purchases  |filter:vm.nameFilter">
+        <md-card  class="col-xs-12 col-sm-12 col-md-3 largo3" ng-repeat="purchase in vm.purchases  |filter:vm.nameFilter">
           <md-card-header>
             <md-card-header-text>
               <span class="md-title">{{purchase.players}}</span>

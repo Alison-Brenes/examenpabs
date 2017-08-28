@@ -3,10 +3,10 @@
   .module('myApp')
   .controller('propertyController', propertyController);
 
-  propertyController.$inject = ['propertyService','ImageService','Upload','$scope'];
+  propertyController.$inject = ['propertyService','$scope'];
 
   // Inicio de playerController.
-  function propertyController(propertyService,ImageService,Upload,$scope){
+  function propertyController(propertyService,$scope){
 
     var vm = this;
     vm.properties ="";
@@ -17,7 +17,7 @@
             vm.properties = response.data;
           });
 
-          vm.cloudObj = ImageService.getConfiguration();
+
         }
 
     $scope.pagina = 1;

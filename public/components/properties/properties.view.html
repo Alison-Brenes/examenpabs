@@ -148,7 +148,7 @@
       <div class="col-md-12">
         <!-- Boton de registrar-->
         <div class="col-xs-offset-2  col-sm-offset-10 col-md-offset-0 col-xs-4 col-sm-6 col-md-4" id="registrar">
-          <md-button class="registrar" type="submit" ng-disabled="frmRegisterProperty.$invalid" ng-click="vm.save(purchase);">Registrar</md-button>
+          <md-button class="registrar" type="submit" ng-disabled="frmRegisterProperty.$invalid" ng-click="vm.save(properties);">Registrar</md-button>
         </div><!--Cierre boton de registrar-->
         <!-- Boton de actualizar-->
         <div class="displayNone" id="actualizar">
@@ -163,7 +163,7 @@
 <div class= "col-md-12" ng-show="pagina==2">
   <!--Inicio de buscar jugadores -->
   <section class="inputSearch">
-    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-8">
       <form action="" class="search-form">
         <div class="form-group has-feedback">
           <label for="Buscar" class="sr-only">Buscar</label>
@@ -177,7 +177,7 @@
 <section class="card">
   <!--Inicio de cards-->
   <div class="col-xs-12 col-sm-12 col-md-12">
-    <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1" ng-repeat="property in vm.properties  |filter:vm.nameFilter">
+    <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1 largo2" ng-repeat="property in vm.properties  |filter:vm.nameFilter">
       <md-card-header>
         <md-card-header-text>
           <span class="md-title">{{property.name}}</span>

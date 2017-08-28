@@ -52,7 +52,16 @@ span{
   display: block;
 }
 .md-title{
-  color: 
+  color: #04B404;
+}
+.largo1{
+  height: 250px;
+}
+.largo2{
+  height: 550px;
+}
+.largo3{
+  height: 200px;
 }
 /*Cierre estilos de sección de cards y card*/
 

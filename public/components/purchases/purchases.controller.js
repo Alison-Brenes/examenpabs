@@ -81,7 +81,7 @@
 
         // Inicio: de la función getInfo, que se encarga de obtener los datos.
         vm.getInfo = function(pPurchase){
-          vm.id = v._id;
+          vm.id = pPurchase._id;
           vm.players = pPurchase.players;
           vm.price = pPurchase.price;
         }// Cierre de la función getInfo.
@@ -94,15 +94,25 @@
 
         // Inicio de la función update, que se encarga de devolver los datos para ser editados.
         vm.update = function(){
+          document.querySelector('#actualizar').classList.add('displayNone');
+          document.querySelector('#registrar').classList.remove('displayNone');
           var purchaseEdited = {
             _id : vm.id,
             players: vm.players,
             price: vm.price
           }// Cierre de update.
-          purchaseService.updatePurchase(purchaseEdited);
+          purchaseService.updatePurchase(purchaseEdited).then(function(response){
+          purchaseService.getPurchases()
+              .then(function(response){
+                vm.purchases = response.data;
+              })
+              .catch(function(err){
+                console.log(err);
+              })
+           });
           loadPurchases();
           clear();
-        }// Cierre de la función update.
+        }//cierre funcion update
 
         // Inicio de la función clear, que se encarga de limpiar los datos despúes de un registro.
         function clear(){
