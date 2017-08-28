@@ -15,7 +15,7 @@
 
     // Inicio de la funcion _setPurchases, que se encarga de registar los datos en el localStorage.
     function _setPurchases(pPurchase){
-      return $http.post('http://localhost:3000/api/sasave_purchases',pPurchase)
+      return $http.post('http://localhost:3000/api/save_purchases',pPurchase)
 
     }// Cierre de la función _setPurchases.
 

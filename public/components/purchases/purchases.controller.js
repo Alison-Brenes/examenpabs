@@ -42,31 +42,31 @@
       }
 
       // Inicio de la función DiscountPrice  que es la resta los valores.
-      vm.DiscountPrice = function(){
-        var playersList = playerService.getPlayers();
-        var purchasesList = purchaseService.getPurchases();
-        var disponible = 0;
+      // vm.DiscountPrice = function(){
+      //   var playersList = playerService.getPlayers();
+      //   var purchasesList = purchaseService.getPurchases();
+      //   var disponible = 0;//
 
-        for (var i = 0; i < purchasesList.length; i++) {
-          if (purchasesList[i].players == playersList[i].name) {
-            disponible = playersList[i].money - purchasesList[i].price;
-            updateDescuento(disponible);
-          }
-        }
-      }// Cierre de la función DiscountPrice  que es la resta los valores.
+      //   for (var i = 0; i < purchasesList.length; i++) {
+      //    if (purchasesList[i].players == playersList[i].name) {
+        //    disponible = playersList[i].money - purchasesList[i].price;
+        //    updateDescuento(disponible);
+      //    }
+      //  }
+    //  }// Cierre de la función DiscountPrice  que es la resta los valores.
 
       // Inicio de la función updateDescuento  que es la resta los valores en la card.
-      function updateDescuento(pdisponible){
-        var playersList = playerService.getPlayers();
-        var purchasesList = purchaseService.getPurchases();
+    //  function updateDescuento(pdisponible){
+    //    var playersList = playerService.getPlayers();
+      //  var purchasesList = purchaseService.getPurchases();
 
-        for (var i = 0; i < purchasesList.length; i++) {
-          if (purchasesList[i].players == playersList[i].name) {
-            playersList[i].money = pdisponible;
-            localStorage.setItem('lsUsersList', JSON.stringify(playersList));
-          }
-        }
-      }// Cierre de la función updateDescuento  que es la resta los valores en la card.
+      //  for (var i = 0; i < purchasesList.length; i++) {
+        //  if (purchasesList[i].players == playersList[i].name) {
+        //    playersList[i].money = pdisponible;
+        //    localStorage.setItem('lsUsersList', JSON.stringify(playersList));
+        //  }
+      //  }
+      //}// Cierre de la función updateDescuento  que es la resta los valores en la card.
 
       // Inicio de la función save, que se encarga de obtener los datos y enviarlos para ser guardados.
       vm.save= function(){

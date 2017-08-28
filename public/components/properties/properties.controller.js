@@ -31,16 +31,6 @@
       $scope.pagina = 1;
     }
 
-    // Inicio de la función presave.
-    vm.presave= function(newProperty){
-      vm.cloudObj.data.file = document.getElementById("photo").files[0];
-      Upload.upload(vm.cloudObj)
-        .success(function(data){
-          newProperty.photo = data.url;
-          vm.save(newProperty);
-        }); // Cierre de la función success.
-    } // Cierre de la función presave.
-
     // Inicio de la función save, que se encarga de obtener los datos y enviarlos para ser guardados.
     vm.save= function(){
       var newProperty = {

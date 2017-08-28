@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 //Esquema de usuarios
 var PurchaseSchema = new mongoose.Schema({
   players : String,
-  price: Number
+  price: String
 });
 
 module.exports = mongoose.model('Purchase', PurchaseSchema); //nombre del modelo dentro del back end y el userSchema es el nombre dentro de mongoose

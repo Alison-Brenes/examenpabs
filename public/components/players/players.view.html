@@ -62,7 +62,7 @@
 <div class= "col-md-12" ng-show="pagina==2">
   <!--Inicio de buscar jugadores -->
   <section class="inputSearch">
-    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-9">
+    <div class="col-sm-3 col-md-3 col-sm-offset-9 col-md-offset-8">
       <form action="" class="search-form">
         <div class="form-group has-feedback">
           <label for="Buscar" class="sr-only">Buscar</label>
@@ -75,8 +75,8 @@
     <!--Inicio de sección cards-->
     <section class="card">
       <!--Inicio de cards-->
-      <div class="col-xs-12 col-sm-12 col-md-12">
-        <md-card  class="col-xs-12 col-sm-12 col-md-4 col-md-offset-1" ng-repeat="player in vm.players  |filter:vm.nameFilter">
+      <div class="col-md-offset-1 col-xs-12 col-sm-12 col-md-12">
+        <md-card  class=" col-xs-12 col-sm-12 col-md-3" ng-repeat="player in vm.players  |filter:vm.nameFilter">
           <md-card-header>
             <md-card-header-text>
               <span class="md-title">{{player.code}}</span>
