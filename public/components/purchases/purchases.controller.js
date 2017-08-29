@@ -77,7 +77,6 @@
         purchaseService.setPurchases(newPurchase);
         clear();
         loadPurchases();
-        return;
         }// Cierre de la función save.
 
         // Inicio: de la función getInfo, que se encarga de obtener los datos.
